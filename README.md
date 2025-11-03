@@ -1,6 +1,6 @@
 # 2025 Responsive Template with Accessibility Helpers
 
-A responsive template for you to adapt.
+A small one-page responsive template for you to adapt.
 
 Built with:
 
