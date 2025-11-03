@@ -1,8 +1,13 @@
 # 2025 Responsive Template with Accessibility Helpers
 
-A responsive template for you to adapt. Complete with metadata, ARIA and a handful of Accessibility helpers.
+A responsive template for you to adapt.
 
-- Includes light & dark mode
+Built with:
+
+- Semantic HTML,
+- ARIA accessibility
+- JSON-LD structured data
+- CSS custom properties for light-dark mode support
 - 'Burger' mobile menu
 - [Demo](https://trudymessingham.co.uk/playground/test-accessibility/)
 
