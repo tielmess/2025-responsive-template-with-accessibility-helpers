@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Essential Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Modern web standards reference template with ARIA accessibility, JSON-LD structured data, and light-dark mode support"
+    />
+    <!-- SEO Meta Tags -->
+    <meta
+      name="keywords"
+      content="web standards, accessibility, ARIA, JSON-LD, dark mode, progressive enhancement"
+    />
+    <meta name="author" content="Web Standards Template" />
+    <meta name="robots" content="index, follow" />
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Web Standards Reference Template" />
+    <meta
+      property="og:description"
+      content="Comprehensive template showcasing modern web development best practices"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com" />
+    <!-- Performance Optimization: Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Color Scheme Support for Browser UI -->
+    <meta name="color-scheme" content="light dark" />
+    <title>Web Standards Reference Template</title>
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Web Standards Reference Template",
+        "description": "Modern web standards reference template with ARIA accessibility, JSON-LD structured data, and light-dark mode support",
+        "url": "https://example.com",
+        "mainEntity": {
+          "@type": "Organization",
+          "name": "Company name here",
+          "description": "Demonstrating best practices in web development",
+          "url": "https://example.com",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-555-0123",
+            "contactType": "customer service",
+            "availableLanguage": "English"
+          },
+          "sameAs": [
+            "https://twitter.com/example",
+            "https://linkedin.com/company/example"
+          ]
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            }
+          ]
+        }
+      }
+    </script>
+    <style>
+      /* CSS Custom Properties for Light-Dark Mode */
+      :root {
+        /* Light mode colors (default) */
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --bg-accent: #e2e8f0;
+        --text-primary: #1a202c;
+        --text-secondary: #4a5568;
+        --text-button: #ffffff;
+        --border-color: #e2e8f0;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --accent-color: #05437c;
+        --accent-hover: #2c5aa0;
+        --success-color: #38a169;
+        --warning-color: #d69e2e;
+
+        /* Typography scale */
+        --font-size-xs: 0.75rem;
+        --font-size-sm: 0.875rem;
+        --font-size-base: 1rem;
+        --font-size-lg: 1.125rem;
+        --font-size-xl: 1.25rem;
+        --font-size-2xl: 1.5rem;
+        --font-size-3xl: 1.875rem;
+        --font-size-4xl: 2.25rem;
+
+        /* Spacing scale */
+        --spacer-1: 0.25rem;
+        --spacer-2: 0.5rem;
+        --spacer-3: 0.75rem;
+        --spacer-4: 1rem;
+        --spacer-6: 1.5rem;
+        --spacer-8: 2rem;
+        --spacer-12: 3rem;
+        --spacer-16: 4rem;
+        --spacer-20: 5rem;
+        --spacer-24: 6rem;
+        --spacer-28: 7rem;
+        --spacer-32: 8rem;
+
+        /* Border radius */
+        --radius-sm: 0.125rem;
+        --radius-md: 0.375rem;
+        --radius-lg: 0.5rem;
+        --radius-xl: 0.75rem;
+      }
+
+      /* Dark mode colors */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg-primary: #1a202c;
+          --bg-secondary: #2d3748;
+          --bg-accent: #4a5568;
+          --text-primary: #f7fafc;
+          --text-secondary: #e2e8f0;
+          --text-button: #1a202c;
+          --border-color: #4a5568;
+          --shadow-color: rgba(0, 0, 0, 0.3);
+          --accent-color: #c6e3f8;
+          --accent-hover: #4299e1;
+          --success-color: #68d391;
+          --warning-color: #f6e05e;
+        }
+      }
+
+      /* Manual dark mode class override (for user toggle) */
+      .dark-mode {
+        --bg-primary: #1a202c;
+        --bg-secondary: #2d3748;
+        --bg-accent: #4a5568;
+        --text-primary: #f7fafc;
+        --text-secondary: #e2e8f0;
+        --text-button: #1a202c;
+        --border-color: #4a5568;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+        --accent-color: #c6e3f8;
+        --accent-hover: #4299e1;
+        --success-color: #68d391;
+        --warning-color: #f6e05e;
+      }
+
+      /* Base styles with modern CSS features */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        line-height: 1.6;
+        color: var(--text-primary);
+        background-color: var(--bg-primary);
+        transition: background-color 0.3s ease, color 0.3s ease;
+        /* Modern CSS logical properties */
+        padding-inline: var(--spacer-4);
+        scroll-behavior: smooth;
+      }
+
+      /* Skip link for keyboard navigation accessibility */
+      .skip-link {
+        position: absolute;
+        top: -45px;
+        left: var(--spacer-4);
+        background: var(--accent-color);
+        color: white;
+        padding: var(--spacer-2) var(--spacer-4);
+        text-decoration: none;
+        border-radius: var(--radius-md);
+        z-index: 1000;
+        transition: top 0.3s ease;
+      }
+
+      .skip-link:focus {
+        top: var(--spacer-4);
+      }
+
+      /* Container with modern CSS container queries support */
+      .container {
+        max-width: 1200px;
+        margin-inline: auto;
+        padding-inline: var(--spacer-4);
+      }
+
+      /* Header with ARIA landmark */
+      header {
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        padding-block: var(--spacer-4);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(10px);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--spacer-4);
+      }
+
+      .logo {
+        font-size: var(--font-size-xl);
+        font-weight: 700;
+        color: var(--accent-color);
+        text-decoration: none;
+      }
+
+      /* Navigation with ARIA attributes */
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: var(--spacer-6);
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        padding: var(--spacer-2) var(--spacer-3);
+        border-radius: var(--radius-md);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      nav a:hover,
+      nav a:focus {
+        color: var(--accent-color);
+        background: var(--bg-accent);
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+      }
+
+      /* Current page indicator */
+      nav a[aria-current="page"] {
+        color: var(--accent-color);
+        background: var(--bg-accent);
+      }
+
+      /* Burger button */
+      .burger {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        border-radius: 0.75rem;
+        cursor: pointer;
+      }
+      .burger:focus-visible {
+        box-shadow: var(--ring);
+      }
+      .burger .lines {
+        position: relative;
+        width: 22px;
+        height: 16px;
+        display: inline-block;
+      }
+      .burger .lines::before,
+      .burger .lines::after,
+      .burger .lines span {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: currentColor;
+        border-radius: 2px;
+        transition: transform 0.25s ease, opacity 0.2s ease;
+      }
+      .burger .lines::before {
+        top: 0;
+      }
+      .burger .lines span {
+        top: 7px;
+      }
+      .burger .lines::after {
+        bottom: 0;
+      }
+      .burger[aria-expanded="true"] .lines::before {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .burger[aria-expanded="true"] .lines span {
+        opacity: 0;
+      }
+      .burger[aria-expanded="true"] .lines::after {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* Responsive nav behaviour */
+      .controls {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      /* Mobile first: menu hidden until expanded */
+      #site-nav {
+        display: none;
+      }
+      #site-nav[data-open] {
+        display: block;
+      }
+      #site-nav .panel {
+        padding: 0.5rem 0 1rem;
+      }
+      #site-nav .panel ul {
+        flex-direction: column;
+      }
+
+      /* Theme toggle button + burger menu */
+      .theme-toggle,
+      .burger {
+        background: var(--bg-accent);
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: var(--font-size-sm);
+        padding: var(--spacer-2) var(--spacer-3);
+      }
+
+      .theme-toggle:hover,
+      .theme-toggle:focus {
+        background: var(--accent-color);
+        color: white;
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+      }
+
+      /* ≥ 768px: show inline menu, hide burger */
+      @media (min-width: 768px) {
+        .burger {
+          display: none;
+        }
+        #site-nav {
+          display: block !important;
+        }
+        #site-nav .panel {
+          padding: 0;
+        }
+        #site-nav .panel ul {
+          flex-direction: row;
+        }
+      }
+
+      /* ≤ 767px */
+      @media (max-width: 768px) {
+        .controls {
+          background: var(--bg-accent);
+          border: 1px solid var(--border-color);
+          border-radius: var(--radius-md);
+          cursor: pointer;
+          transition: all 0.3s ease;
+          padding: var(--spacer-2) var(--spacer-3);
+        }
+
+        .theme-toggle {
+          font-size: var(--font-size-xl);
+          padding-top: 1px;
+        }
+
+        .burger {
+          font-size: var(--font-size-sm);
+          padding-top: 2px;
+          padding-bottom: 2px;
+        }
+      }
+
+      /* Main content area */
+      main {
+        min-height: 70vh;
+        padding-block: var(--spacer-8);
+      }
+
+      /* Section styling with proper spacing */
+      section {
+        margin-block-end: var(--spacer-16);
+        scroll-margin-top: var(--spacer-32);
+      }
+
+      /* ≤ 767px */
+      @media (max-width: 768px) {
+        section {
+          margin-block-end: var(--spacer-16);
+          scroll-margin-top: 20rem;
+        }
+      }
+
+      .section-header {
+        text-align: center;
+        margin-block-end: var(--spacer-8);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: var(--text-primary);
+        margin-block-end: var(--spacer-4);
+        line-height: 1.2;
+        font-size: revert;
+        font-weight: normal;
+      }
+
+      h1 {
+        font-size: var(--font-size-4xl);
+      }
+      h2 {
+        font-size: var(--font-size-3xl);
+      }
+      h3 {
+        font-size: var(--font-size-2xl);
+      }
+      h4 {
+        font-size: var(--font-size-xl);
+      }
+
+      p {
+        color: var(--text-secondary);
+        margin-block-end: var(--spacer-4);
+        max-width: 65ch; /* Optimal reading width */
+      }
+
+      p.center {
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      /* Hero section */
+      .hero {
+        text-align: center;
+        padding-block: var(--spacer-16);
+        background: linear-gradient(
+          135deg,
+          var(--bg-secondary),
+          var(--bg-accent)
+        );
+        border-radius: var(--radius-xl);
+        margin-block-end: var(--spacer-16);
+      }
+
+      .hero h1 {
+        margin-block-end: var(--spacer-6);
+        color: var(--accent-color);
+      }
+
+      .hero p {
+        font-size: var(--font-size-lg);
+        margin-inline: auto;
+        max-width: 60ch;
+      }
+
+      /* Card layout with CSS Grid */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacer-6);
+        margin-block-start: var(--spacer-8);
+      }
+
+      .card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: var(--spacer-6);
+        box-shadow: 0 4px 6px var(--shadow-color);
+        transition: all 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px var(--shadow-color);
+      }
+
+      .card h3 {
+        color: var(--accent-color);
+        margin-block-end: var(--spacer-3);
+      }
+
+      /* Button styles */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacer-2);
+        padding: var(--spacer-3) var(--spacer-6);
+        background: var(--accent-color);
+        color: var(--text-button);
+        text-decoration: none;
+        border-radius: var(--radius-md);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: var(--font-size-base);
+      }
+
+      .btn:hover,
+      .btn:focus {
+        background: var(--accent-hover);
+        transform: translateY(-1px);
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+      }
+
+      .btn-secondary {
+        background: var(--bg-accent);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+      }
+
+      .btn-secondary:hover,
+      .btn-secondary:focus {
+        background: var(--border-color);
+      }
+
+      /* Form styles */
+      fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .form-group {
+        margin-block-end: var(--spacer-4);
+      }
+
+      label {
+        display: block;
+        margin-block-end: var(--spacer-2);
+        font-weight: 500;
+        color: var(--text-primary);
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: var(--spacer-3);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-size: var(--font-size-base);
+        transition: all 0.3s ease;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+        border-color: var(--accent-color);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        padding-block: var(--spacer-8);
+        margin-block-start: var(--spacer-16);
+        text-align: center;
+      }
+
+      /* Utility classes */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+      .text-secondary {
+        color: var(--text-secondary);
+      }
+
+      /* Responsive design with modern CSS */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        nav ul {
+          justify-content: center;
+        }
+
+        .hero {
+          padding-block: var(--spacer-8);
+        }
+
+        h1 {
+          font-size: var(--font-size-3xl);
+        }
+        h2 {
+          font-size: var(--font-size-2xl);
+        }
+      }
+
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        :root {
+          --border-color: currentColor;
+          --shadow-color: transparent;
+        }
+      }
+
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+
+        .card:hover {
+          transform: none;
+        }
+
+        .btn:hover {
+          transform: none;
+        }
+      }
+
+      /* Print styles */
+      @media print {
+        .theme-toggle,
+        .skip-link {
+          display: none;
+        }
+
+        body {
+          background: white;
+          color: black;
+        }
+      }
+    </style>
+    <style>
+      @view-transition {
+        navigation: auto;
+      }
+    </style>
+  </head>
+  <body id="home">
+    <!-- Skip link for keyboard accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Header with ARIA landmark -->
+    <header role="banner">
+      <div class="container">
+        <div class="header-content">
+          <a href="#" class="logo" aria-label="Modern Web Standards - Home">
+            <span id="site-title">Modern Web Standards</span>
+          </a>
+
+          <div class="controls">
+            <!-- Main navigation with ARIA attributes -->
+            <nav
+              id="site-nav"
+              role="navigation"
+              aria-label="Main navigation"
+              hidden
+            >
+              <div class="panel">
+                <ul>
+                  <li><a href="#home" aria-current="page">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#services">Services</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                </ul>
+              </div>
+            </nav>
+
+            <button
+              id="burger"
+              class="burger"
+              aria-label="Menu"
+              aria-controls="site-nav"
+              aria-expanded="false"
+            >
+              <span class="lines"><span></span></span>
+            </button>
+
+            <!-- Theme toggle button with ARIA attributes -->
+            <button
+              class="theme-toggle"
+              id="theme-toggle"
+              aria-label="Toggle dark mode"
+              aria-pressed="false"
+              type="button"
+            >
+              🌙
+            </button>
+          </div>
+          <!-- /.controls -->
+        </div>
+        <!-- /.header-content -->
+      </div>
+    </header>
+    <!-- Main content with ARIA landmark -->
+    <main id="main-content" role="main">
+      <div class="container">
+        <!-- Hero section with heading hierarchy -->
+        <section class="hero" aria-labelledby="hero-heading">
+          <h1 id="hero-heading">
+            <span id="hero-title">Web Standards Reference Template</span>
+          </h1>
+          <p id="hero-subtitle">
+            A comprehensive example showcasing modern web development best
+            practices including ARIA accessibility, JSON-LD structured data, CSS
+            custom properties for light-dark mode, and progressive enhancement
+            techniques.
+          </p>
+          <a href="#about" class="btn" role="button">
+            Learn More <span aria-hidden="true">→</span>
+          </a>
+        </section>
+        <!-- About section with ARIA attributes -->
+        <section id="about" aria-labelledby="about-heading">
+          <div class="section-header">
+            <h2 id="about-heading">
+              <span id="about-title">About This Template</span>
+            </h2>
+            <p class="center">
+              This template demonstrates production-ready implementations of
+              modern web standards and accessibility best practices.
+            </p>
+          </div>
+          <!-- Feature cards with semantic markup -->
+          <div class="card-grid" aria-label="Template features">
+            <article class="card">
+              <h3>ARIA Accessibility</h3>
+              <p>
+                Comprehensive ARIA landmarks, labels, and interactive element
+                attributes for screen reader compatibility and keyboard
+                navigation support.
+              </p>
+              <ul style="list-style: none">
+                <li>
+                  Semantic landmarks (banner, main, navigation, contentinfo)
+                </li>
+                <li>Skip links for keyboard users</li>
+                <li>Proper heading hierarchy</li>
+                <li>Focus management and visible focus indicators</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>JSON-LD Structured Data</h3>
+              <p>
+                Schema.org markup in JSON-LD format for enhanced SEO performance
+                and rich search results display.
+              </p>
+              <ul style="list-style: none">
+                <li>WebPage and Organization schemas</li>
+                <li>Breadcrumb navigation markup</li>
+                <li>Contact information structured data</li>
+                <li>Social media profile links</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Light-Dark Mode</h3>
+              <p>
+                CSS custom properties with prefers-color-scheme media query and
+                manual toggle support for optimal user experience.
+              </p>
+              <ul style="list-style: none">
+                <li>Automatic system preference detection</li>
+                <li>Manual theme toggle with persistence</li>
+                <li>Smooth color transitions</li>
+                <li>High contrast mode support</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Progressive Enhancement</h3>
+              <p>
+                Modern CSS features, performance optimizations, and
+                accessibility enhancements that work across all browsers.
+              </p>
+              <ul style="list-style: none">
+                <li>CSS logical properties for internationalization</li>
+                <li>Container queries and modern layout</li>
+                <li>Reduced motion preference support</li>
+                <li>Resource hints for performance</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+        <!-- Services section -->
+        <section id="services" aria-labelledby="services-heading">
+          <div class="section-header">
+            <h2 id="services-heading">
+              <span id="services-title">Implementation Features</span>
+            </h2>
+            <p class="center">
+              Key technical implementations included in this reference template.
+            </p>
+          </div>
+          <div class="card-grid">
+            <div class="card">
+              <h3>Performance Optimization</h3>
+              <p>
+                Resource hints, critical CSS, lazy loading, and modern
+                compression techniques for optimal loading speed.
+              </p>
+            </div>
+            <div class="card">
+              <h3>SEO Enhancement</h3>
+              <p>
+                Meta tags, Open Graph properties, structured data, and semantic
+                HTML for improved search visibility.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Accessibility Compliance</h3>
+              <p>
+                WCAG 2.1 AA compliance with comprehensive ARIA implementation
+                and keyboard navigation support.
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- Contact section with accessible form -->
+        <section id="contact" aria-labelledby="contact-heading">
+          <div class="section-header">
+            <h2 id="contact-heading">
+              <span id="contact-title">Implementation Notes</span>
+            </h2>
+            <p class="center">
+              Key considerations for implementing these features in your own
+              projects.
+            </p>
+          </div>
+          <!-- Accessible form example -->
+          <form
+            class="card"
+            style="max-width: 600px; margin: 0 auto"
+            novalidate
+          >
+            <fieldset>
+              <legend>Contact Information Form Example</legend>
+              <div class="form-group">
+                <label for="name"
+                  >Full Name <span aria-label="required">*</span></label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  aria-describedby="name-help"
+                  autocomplete="name"
+                />
+                <div
+                  id="name-help"
+                  class="text-secondary"
+                  style="
+                    font-size: var(--font-size-sm);
+                    margin-top: var(--spacer-1);
+                  "
+                >
+                  Enter your first and last name
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email"
+                  >Email Address <span aria-label="required">*</span></label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  aria-describedby="email-help"
+                  autocomplete="email"
+                />
+                <div
+                  id="email-help"
+                  class="text-secondary"
+                  style="
+                    font-size: var(--font-size-sm);
+                    margin-top: var(--spacer-1);
+                  "
+                >
+                  We'll never share your email address
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  aria-describedby="message-help"
+                ></textarea>
+                <div
+                  id="message-help"
+                  class="text-secondary"
+                  style="
+                    font-size: var(--font-size-sm);
+                    margin-top: var(--spacer-1);
+                  "
+                >
+                  Optional: Tell us about your project
+                </div>
+              </div>
+              <div style="display: flex; gap: var(--spacer-4); flex-wrap: wrap">
+                <button type="submit" class="btn">
+                  Send Message <span aria-hidden="true">📧</span>
+                </button>
+                <button type="reset" class="btn btn-secondary">
+                  Clear Form
+                </button>
+              </div>
+            </fieldset>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer with ARIA landmark -->
+    <footer role="contentinfo">
+      <div class="container">
+        <p class="text-secondary center">
+          ©
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          <span id="company-name">Modern Web Standards</span> All rights
+          reserved. This template demonstrates best practices in web
+          accessibility, SEO, and progressive enhancement.
+        </p>
+        <p
+          class="text-secondary center"
+          style="margin-top: var(--spacer-2); font-size: var(--font-size-sm)"
+        >
+          Built with semantic HTML, ARIA accessibility, JSON-LD structured data,
+          and CSS custom properties for light-dark mode support.
+        </p>
+      </div>
+    </footer>
+    <!-- Live region for dynamic announcements -->
+    <div
+      id="announcements"
+      aria-live="polite"
+      aria-atomic="true"
+      class="sr-only"
+    ></div>
+
+    <script>
+      const themeToggle = document.getElementById("theme-toggle"),
+        body = document.body,
+        announcements = document.getElementById("announcements"),
+        savedTheme = localStorage.getItem("theme"),
+        systemPrefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+      let currentTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
+      function applyTheme(e) {
+        "dark" === e
+          ? (body.classList.add("dark-mode"),
+            (themeToggle.textContent = "☀️"),
+            themeToggle.setAttribute("aria-pressed", "true"))
+          : (body.classList.remove("dark-mode"),
+            (themeToggle.textContent = "🌙"),
+            themeToggle.setAttribute("aria-pressed", "false"));
+      }
+      applyTheme(currentTheme),
+        themeToggle.addEventListener("click", () => {
+          (currentTheme = "light" === currentTheme ? "dark" : "light"),
+            applyTheme(currentTheme),
+            localStorage.setItem("theme", currentTheme),
+            (announcements.textContent = `Switched to ${currentTheme} mode`);
+        }),
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", (e) => {
+            localStorage.getItem("theme") ||
+              ((currentTheme = e.matches ? "dark" : "light"),
+              applyTheme(currentTheme),
+              (announcements.textContent = `System theme changed to ${currentTheme} mode`));
+          });
+      const burger = document.getElementById("burger"),
+        nav = document.getElementById("site-nav");
+      function toggleNav(e) {
+        e ?? !nav.hasAttribute("data-open")
+          ? (nav.setAttribute("data-open", ""),
+            nav.removeAttribute("hidden"),
+            burger.setAttribute("aria-expanded", "true"))
+          : (nav.removeAttribute("data-open"),
+            burger.setAttribute("aria-expanded", "false"));
+      }
+      burger.addEventListener("click", () => toggleNav()),
+        window.addEventListener("keydown", (e) => {
+          "Escape" === e.key && toggleNav(!1);
+        }),
+        nav.addEventListener("click", (e) => {
+          e.target.closest("a") && toggleNav(!1);
+        }),
+        document.querySelectorAll('a[href^="#"]').forEach((e) => {
+          e.addEventListener("click", function (e) {
+            e.preventDefault();
+            const t = document.querySelector(this.getAttribute("href"));
+            if (t) {
+              const e = window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+              ).matches;
+              t.scrollIntoView({
+                behavior: e ? "auto" : "smooth",
+                block: "start",
+              }),
+                t.focus(),
+                document.querySelectorAll("nav a").forEach((e) => {
+                  e.removeAttribute("aria-current");
+                }),
+                this.setAttribute("aria-current", "page");
+            }
+          });
+        }),
+        document.querySelector("form").addEventListener("submit", function (e) {
+          e.preventDefault();
+          const t = this.querySelector('button[type="submit"]'),
+            n = t.innerHTML;
+          (t.innerHTML = 'Sending... <span aria-hidden="true">⏳</span>'),
+            (t.disabled = !0),
+            setTimeout(() => {
+              (t.innerHTML =
+                'Message Sent! <span aria-hidden="true">✅</span>'),
+                (announcements.textContent =
+                  "Your message has been sent successfully"),
+                setTimeout(() => {
+                  (t.innerHTML = n), (t.disabled = !1), this.reset();
+                }, 2e3);
+            }, 1500);
+        });
+    </script>
+  </body>
+</html>
